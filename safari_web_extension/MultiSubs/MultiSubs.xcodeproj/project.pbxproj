@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E92E1C12737CD9500BB51EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92E1C02737CD9500BB51EA /* AppDelegate.swift */; };
+		0E92E1C42737CD9500BB51EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1C22737CD9500BB51EA /* Main.storyboard */; };
+		0E92E1D62737CD9500BB51EA /* MultiSubs Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0E92E1DD2737CD9500BB51EA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E19F2737CD9400BB51EA /* Main.html */; };
+		0E92E1DF2737CD9500BB51EA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1A12737CD9400BB51EA /* Icon.png */; };
+		0E92E1E12737CD9500BB51EA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1A22737CD9400BB51EA /* Style.css */; };
+		0E92E1E32737CD9500BB51EA /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1A32737CD9400BB51EA /* Script.js */; };
+		0E92E1E52737CD9500BB51EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92E1A42737CD9400BB51EA /* ViewController.swift */; };
+		0E92E1E72737CD9500BB51EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1A52737CD9500BB51EA /* Assets.xcassets */; };
+		0E92E1E92737CD9500BB51EA /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92E1A72737CD9500BB51EA /* SafariWebExtensionHandler.swift */; };
+		0E92E20B2737CD9500BB51EA /* icon16-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1FB2737CD9500BB51EA /* icon16-gray.png */; };
+		0E92E20C2737CD9500BB51EA /* icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1FC2737CD9500BB51EA /* icon16.png */; };
+		0E92E20D2737CD9500BB51EA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1FD2737CD9500BB51EA /* icon.png */; };
+		0E92E20E2737CD9500BB51EA /* nflxmultisubs.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1FE2737CD9500BB51EA /* nflxmultisubs.min.js */; };
+		0E92E20F2737CD9500BB51EA /* icon128-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1FF2737CD9500BB51EA /* icon128-gray.png */; };
+		0E92E2102737CD9500BB51EA /* icon32-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2002737CD9500BB51EA /* icon32-gray.png */; };
+		0E92E2112737CD9500BB51EA /* settings.css in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2012737CD9500BB51EA /* settings.css */; };
+		0E92E2122737CD9500BB51EA /* nflxmultisubs.min.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2022737CD9500BB51EA /* nflxmultisubs.min.js.LICENSE.txt */; };
+		0E92E2132737CD9500BB51EA /* icon128.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2032737CD9500BB51EA /* icon128.png */; };
+		0E92E2142737CD9500BB51EA /* icon-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2042737CD9500BB51EA /* icon-gray.png */; };
+		0E92E2152737CD9500BB51EA /* settings.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2052737CD9500BB51EA /* settings.min.js */; };
+		0E92E2162737CD9500BB51EA /* background.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2062737CD9500BB51EA /* background.min.js */; };
+		0E92E2172737CD9500BB51EA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2072737CD9500BB51EA /* manifest.json */; };
+		0E92E2182737CD9500BB51EA /* content.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2082737CD9500BB51EA /* content.min.js */; };
+		0E92E2192737CD9500BB51EA /* settings.html in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E2092737CD9500BB51EA /* settings.html */; };
+		0E92E21A2737CD9500BB51EA /* icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E20A2737CD9500BB51EA /* icon32.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E92E1D72737CD9500BB51EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E92E1992737CD9400BB51EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E92E1D42737CD9500BB51EA;
+			remoteInfo = "MultiSubs Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E92E1F62737CD9500BB51EA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0E92E1D62737CD9500BB51EA /* MultiSubs Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0E92E1A02737CD9400BB51EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		0E92E1A12737CD9400BB51EA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		0E92E1A22737CD9400BB51EA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		0E92E1A32737CD9400BB51EA /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		0E92E1A42737CD9400BB51EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0E92E1A52737CD9500BB51EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0E92E1A72737CD9500BB51EA /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		0E92E1BE2737CD9500BB51EA /* MultiSubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E92E1C02737CD9500BB51EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0E92E1C32737CD9500BB51EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0E92E1C52737CD9500BB51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E92E1C62737CD9500BB51EA /* MultiSubs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiSubs.entitlements; sourceTree = "<group>"; };
+		0E92E1D02737CD9500BB51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MultiSubs Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E92E1DA2737CD9500BB51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E92E1DB2737CD9500BB51EA /* MultiSubs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiSubs.entitlements; sourceTree = "<group>"; };
+		0E92E1FB2737CD9500BB51EA /* icon16-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon16-gray.png"; path = "Resources/icon16-gray.png"; sourceTree = "<group>"; };
+		0E92E1FC2737CD9500BB51EA /* icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon16.png; path = Resources/icon16.png; sourceTree = "<group>"; };
+		0E92E1FD2737CD9500BB51EA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
+		0E92E1FE2737CD9500BB51EA /* nflxmultisubs.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = nflxmultisubs.min.js; path = Resources/nflxmultisubs.min.js; sourceTree = "<group>"; };
+		0E92E1FF2737CD9500BB51EA /* icon128-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon128-gray.png"; path = "Resources/icon128-gray.png"; sourceTree = "<group>"; };
+		0E92E2002737CD9500BB51EA /* icon32-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon32-gray.png"; path = "Resources/icon32-gray.png"; sourceTree = "<group>"; };
+		0E92E2012737CD9500BB51EA /* settings.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = settings.css; path = Resources/settings.css; sourceTree = "<group>"; };
+		0E92E2022737CD9500BB51EA /* nflxmultisubs.min.js.LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = nflxmultisubs.min.js.LICENSE.txt; path = Resources/nflxmultisubs.min.js.LICENSE.txt; sourceTree = "<group>"; };
+		0E92E2032737CD9500BB51EA /* icon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon128.png; path = Resources/icon128.png; sourceTree = "<group>"; };
+		0E92E2042737CD9500BB51EA /* icon-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-gray.png"; path = "Resources/icon-gray.png"; sourceTree = "<group>"; };
+		0E92E2052737CD9500BB51EA /* settings.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = settings.min.js; path = Resources/settings.min.js; sourceTree = "<group>"; };
+		0E92E2062737CD9500BB51EA /* background.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.min.js; path = Resources/background.min.js; sourceTree = "<group>"; };
+		0E92E2072737CD9500BB51EA /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
+		0E92E2082737CD9500BB51EA /* content.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.min.js; path = Resources/content.min.js; sourceTree = "<group>"; };
+		0E92E2092737CD9500BB51EA /* settings.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = settings.html; path = Resources/settings.html; sourceTree = "<group>"; };
+		0E92E20A2737CD9500BB51EA /* icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon32.png; path = Resources/icon32.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E92E1BB2737CD9500BB51EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E92E1D22737CD9500BB51EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E92E1982737CD9400BB51EA = {
+			isa = PBXGroup;
+			children = (
+				0E92E19D2737CD9400BB51EA /* Shared (App) */,
+				0E92E1A62737CD9500BB51EA /* Shared (Extension) */,
+				0E92E1BF2737CD9500BB51EA /* macOS (App) */,
+				0E92E1CF2737CD9500BB51EA /* iOS (Extension) */,
+				0E92E1D92737CD9500BB51EA /* macOS (Extension) */,
+				0E92E1AD2737CD9500BB51EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0E92E19D2737CD9400BB51EA /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				0E92E1A42737CD9400BB51EA /* ViewController.swift */,
+				0E92E1A52737CD9500BB51EA /* Assets.xcassets */,
+				0E92E19E2737CD9400BB51EA /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		0E92E19E2737CD9400BB51EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E92E19F2737CD9400BB51EA /* Main.html */,
+				0E92E1A12737CD9400BB51EA /* Icon.png */,
+				0E92E1A22737CD9400BB51EA /* Style.css */,
+				0E92E1A32737CD9400BB51EA /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0E92E1A62737CD9500BB51EA /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				0E92E1FA2737CD9500BB51EA /* Resources */,
+				0E92E1A72737CD9500BB51EA /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		0E92E1AD2737CD9500BB51EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0E92E1BE2737CD9500BB51EA /* MultiSubs.app */,
+				0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0E92E1BF2737CD9500BB51EA /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				0E92E1C02737CD9500BB51EA /* AppDelegate.swift */,
+				0E92E1C22737CD9500BB51EA /* Main.storyboard */,
+				0E92E1C52737CD9500BB51EA /* Info.plist */,
+				0E92E1C62737CD9500BB51EA /* MultiSubs.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		0E92E1CF2737CD9500BB51EA /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				0E92E1D02737CD9500BB51EA /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		0E92E1D92737CD9500BB51EA /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				0E92E1DA2737CD9500BB51EA /* Info.plist */,
+				0E92E1DB2737CD9500BB51EA /* MultiSubs.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		0E92E1FA2737CD9500BB51EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E92E1FB2737CD9500BB51EA /* icon16-gray.png */,
+				0E92E1FC2737CD9500BB51EA /* icon16.png */,
+				0E92E1FD2737CD9500BB51EA /* icon.png */,
+				0E92E1FE2737CD9500BB51EA /* nflxmultisubs.min.js */,
+				0E92E1FF2737CD9500BB51EA /* icon128-gray.png */,
+				0E92E2002737CD9500BB51EA /* icon32-gray.png */,
+				0E92E2012737CD9500BB51EA /* settings.css */,
+				0E92E2022737CD9500BB51EA /* nflxmultisubs.min.js.LICENSE.txt */,
+				0E92E2032737CD9500BB51EA /* icon128.png */,
+				0E92E2042737CD9500BB51EA /* icon-gray.png */,
+				0E92E2052737CD9500BB51EA /* settings.min.js */,
+				0E92E2062737CD9500BB51EA /* background.min.js */,
+				0E92E2072737CD9500BB51EA /* manifest.json */,
+				0E92E2082737CD9500BB51EA /* content.min.js */,
+				0E92E2092737CD9500BB51EA /* settings.html */,
+				0E92E20A2737CD9500BB51EA /* icon32.png */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E92E1BD2737CD9500BB51EA /* MultiSubs (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E92E1F72737CD9500BB51EA /* Build configuration list for PBXNativeTarget "MultiSubs (macOS)" */;
+			buildPhases = (
+				0E92E1BA2737CD9500BB51EA /* Sources */,
+				0E92E1BB2737CD9500BB51EA /* Frameworks */,
+				0E92E1BC2737CD9500BB51EA /* Resources */,
+				0E92E1F62737CD9500BB51EA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E92E1D82737CD9500BB51EA /* PBXTargetDependency */,
+			);
+			name = "MultiSubs (macOS)";
+			productName = "MultiSubs (macOS)";
+			productReference = 0E92E1BE2737CD9500BB51EA /* MultiSubs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0E92E1D42737CD9500BB51EA /* MultiSubs Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E92E1F32737CD9500BB51EA /* Build configuration list for PBXNativeTarget "MultiSubs Extension (macOS)" */;
+			buildPhases = (
+				0E92E1D12737CD9500BB51EA /* Sources */,
+				0E92E1D22737CD9500BB51EA /* Frameworks */,
+				0E92E1D32737CD9500BB51EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MultiSubs Extension (macOS)";
+			productName = "MultiSubs Extension (macOS)";
+			productReference = 0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0E92E1992737CD9400BB51EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					0E92E1BD2737CD9500BB51EA = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					0E92E1D42737CD9500BB51EA = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 0E92E19C2737CD9400BB51EA /* Build configuration list for PBXProject "MultiSubs" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0E92E1982737CD9400BB51EA;
+			productRefGroup = 0E92E1AD2737CD9500BB51EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0E92E1BD2737CD9500BB51EA /* MultiSubs (macOS) */,
+				0E92E1D42737CD9500BB51EA /* MultiSubs Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0E92E1BC2737CD9500BB51EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E92E1DF2737CD9500BB51EA /* Icon.png in Resources */,
+				0E92E1E12737CD9500BB51EA /* Style.css in Resources */,
+				0E92E1C42737CD9500BB51EA /* Main.storyboard in Resources */,
+				0E92E1E32737CD9500BB51EA /* Script.js in Resources */,
+				0E92E1E72737CD9500BB51EA /* Assets.xcassets in Resources */,
+				0E92E1DD2737CD9500BB51EA /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E92E1D32737CD9500BB51EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E92E2122737CD9500BB51EA /* nflxmultisubs.min.js.LICENSE.txt in Resources */,
+				0E92E2152737CD9500BB51EA /* settings.min.js in Resources */,
+				0E92E20B2737CD9500BB51EA /* icon16-gray.png in Resources */,
+				0E92E2172737CD9500BB51EA /* manifest.json in Resources */,
+				0E92E2132737CD9500BB51EA /* icon128.png in Resources */,
+				0E92E20E2737CD9500BB51EA /* nflxmultisubs.min.js in Resources */,
+				0E92E2182737CD9500BB51EA /* content.min.js in Resources */,
+				0E92E20C2737CD9500BB51EA /* icon16.png in Resources */,
+				0E92E20F2737CD9500BB51EA /* icon128-gray.png in Resources */,
+				0E92E2192737CD9500BB51EA /* settings.html in Resources */,
+				0E92E2102737CD9500BB51EA /* icon32-gray.png in Resources */,
+				0E92E21A2737CD9500BB51EA /* icon32.png in Resources */,
+				0E92E2142737CD9500BB51EA /* icon-gray.png in Resources */,
+				0E92E20D2737CD9500BB51EA /* icon.png in Resources */,
+				0E92E2162737CD9500BB51EA /* background.min.js in Resources */,
+				0E92E2112737CD9500BB51EA /* settings.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E92E1BA2737CD9500BB51EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E92E1E52737CD9500BB51EA /* ViewController.swift in Sources */,
+				0E92E1C12737CD9500BB51EA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E92E1D12737CD9500BB51EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E92E1E92737CD9500BB51EA /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E92E1D82737CD9500BB51EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E92E1D42737CD9500BB51EA /* MultiSubs Extension (macOS) */;
+			targetProxy = 0E92E1D72737CD9500BB51EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0E92E19F2737CD9400BB51EA /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E92E1A02737CD9400BB51EA /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		0E92E1C22737CD9500BB51EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E92E1C32737CD9500BB51EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0E92E1EA2737CD9500BB51EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0E92E1EB2737CD9500BB51EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		0E92E1F42737CD9500BB51EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/MultiSubs.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MultiSubs Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.MultiSubs.Extension;
+				PRODUCT_NAME = "MultiSubs Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0E92E1F52737CD9500BB51EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/MultiSubs.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MultiSubs Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.MultiSubs.Extension;
+				PRODUCT_NAME = "MultiSubs Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0E92E1F82737CD9500BB51EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/MultiSubs.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MultiSubs;
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.MultiSubs;
+				PRODUCT_NAME = MultiSubs;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0E92E1F92737CD9500BB51EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/MultiSubs.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = MultiSubs;
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.MultiSubs;
+				PRODUCT_NAME = MultiSubs;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0E92E19C2737CD9400BB51EA /* Build configuration list for PBXProject "MultiSubs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E92E1EA2737CD9500BB51EA /* Debug */,
+				0E92E1EB2737CD9500BB51EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E92E1F32737CD9500BB51EA /* Build configuration list for PBXNativeTarget "MultiSubs Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E92E1F42737CD9500BB51EA /* Debug */,
+				0E92E1F52737CD9500BB51EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E92E1F72737CD9500BB51EA /* Build configuration list for PBXNativeTarget "MultiSubs (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E92E1F82737CD9500BB51EA /* Debug */,
+				0E92E1F92737CD9500BB51EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0E92E1992737CD9400BB51EA /* Project object */;
+}
