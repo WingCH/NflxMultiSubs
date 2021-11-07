@@ -16,8 +16,7 @@
 		]
 	},
 	"browser_action": {
-		"default_icon": "icon-gray.png",
-		"default_popup": "settings.html"
+		"default_icon": "icon-gray.png"
 	},
 	"icons": {
 		"16": "icon16.png",
