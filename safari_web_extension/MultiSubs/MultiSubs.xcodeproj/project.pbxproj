@@ -72,7 +72,6 @@
 		0E92E1C32737CD9500BB51EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E92E1C52737CD9500BB51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E92E1C62737CD9500BB51EA /* MultiSubs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiSubs.entitlements; sourceTree = "<group>"; };
-		0E92E1D02737CD9500BB51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MultiSubs Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E92E1DA2737CD9500BB51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E92E1DB2737CD9500BB51EA /* MultiSubs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiSubs.entitlements; sourceTree = "<group>"; };
@@ -118,7 +117,6 @@
 				0E92E19D2737CD9400BB51EA /* Shared (App) */,
 				0E92E1A62737CD9500BB51EA /* Shared (Extension) */,
 				0E92E1BF2737CD9500BB51EA /* macOS (App) */,
-				0E92E1CF2737CD9500BB51EA /* iOS (Extension) */,
 				0E92E1D92737CD9500BB51EA /* macOS (Extension) */,
 				0E92E1AD2737CD9500BB51EA /* Products */,
 			);
@@ -172,14 +170,6 @@
 				0E92E1C62737CD9500BB51EA /* MultiSubs.entitlements */,
 			);
 			path = "macOS (App)";
-			sourceTree = "<group>";
-		};
-		0E92E1CF2737CD9500BB51EA /* iOS (Extension) */ = {
-			isa = PBXGroup;
-			children = (
-				0E92E1D02737CD9500BB51EA /* Info.plist */,
-			);
-			path = "iOS (Extension)";
 			sourceTree = "<group>";
 		};
 		0E92E1D92737CD9500BB51EA /* macOS (Extension) */ = {
@@ -495,6 +485,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/MultiSubs.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AL869FRMV6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -511,7 +502,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.MultiSubs.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingch.MultiSubs.Extension;
 				PRODUCT_NAME = "MultiSubs Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -526,6 +517,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/MultiSubs.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AL869FRMV6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -542,7 +534,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.MultiSubs.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingch.MultiSubs.Extension;
 				PRODUCT_NAME = "MultiSubs Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -560,6 +552,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/MultiSubs.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AL869FRMV6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
@@ -578,7 +571,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.MultiSubs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingch.MultiSubs;
 				PRODUCT_NAME = MultiSubs;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -595,6 +588,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/MultiSubs.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AL869FRMV6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
@@ -613,7 +607,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.MultiSubs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingch.MultiSubs;
 				PRODUCT_NAME = MultiSubs;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

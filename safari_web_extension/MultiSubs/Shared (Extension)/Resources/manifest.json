@@ -1,10 +1,10 @@
 {
-	"short_name": "NflxMultiSubs",
-	"description": "Bilingual Subtitles for Netflix (fixed)",
-	"version": "2.2.6",
-	"name": "NflxMultiSubs 2021 (Netflix Multi. Subtitles)",
+	"short_name": "MultiSubs For Netflix",
+	"description": "Multiple Subtitles for Netflix",
+	"version": "1.0.0",
+	"name": "MultiSubs For Netflix",
 	"manifest_version": 2,
-	"author": "Dan Chen, Gert Mertes",
+	"author": "WingCH",
 	"permissions": [
 		"storage",
 		"https://www.netflix.com/watch/*",
