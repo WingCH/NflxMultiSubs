@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E92E1C12737CD9500BB51EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92E1C02737CD9500BB51EA /* AppDelegate.swift */; };
 		0E92E1C42737CD9500BB51EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1C22737CD9500BB51EA /* Main.storyboard */; };
-		0E92E1D62737CD9500BB51EA /* MultiSubs Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0E92E1D62737CD9500BB51EA /* NflxMultiSubs Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0E92E1D52737CD9500BB51EA /* NflxMultiSubs Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0E92E1DD2737CD9500BB51EA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E19F2737CD9400BB51EA /* Main.html */; };
 		0E92E1DF2737CD9500BB51EA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1A12737CD9400BB51EA /* Icon.png */; };
 		0E92E1E12737CD9500BB51EA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 0E92E1A22737CD9400BB51EA /* Style.css */; };
@@ -52,7 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0E92E1D62737CD9500BB51EA /* MultiSubs Extension.appex in Embed App Extensions */,
+				0E92E1D62737CD9500BB51EA /* NflxMultiSubs Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,12 +67,12 @@
 		0E92E1A42737CD9400BB51EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E92E1A52737CD9500BB51EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E92E1A72737CD9500BB51EA /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		0E92E1BE2737CD9500BB51EA /* MultiSubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E92E1BE2737CD9500BB51EA /* NflxMultiSubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NflxMultiSubs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E92E1C02737CD9500BB51EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E92E1C32737CD9500BB51EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E92E1C52737CD9500BB51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E92E1C62737CD9500BB51EA /* MultiSubs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiSubs.entitlements; sourceTree = "<group>"; };
-		0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MultiSubs Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E92E1D52737CD9500BB51EA /* NflxMultiSubs Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NflxMultiSubs Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E92E1DA2737CD9500BB51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E92E1DB2737CD9500BB51EA /* MultiSubs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiSubs.entitlements; sourceTree = "<group>"; };
 		0E92E1FB2737CD9500BB51EA /* icon16-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon16-gray.png"; path = "Resources/icon16-gray.png"; sourceTree = "<group>"; };
@@ -155,8 +155,8 @@
 		0E92E1AD2737CD9500BB51EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0E92E1BE2737CD9500BB51EA /* MultiSubs.app */,
-				0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */,
+				0E92E1BE2737CD9500BB51EA /* NflxMultiSubs.app */,
+				0E92E1D52737CD9500BB51EA /* NflxMultiSubs Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,9 +208,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0E92E1BD2737CD9500BB51EA /* MultiSubs (macOS) */ = {
+		0E92E1BD2737CD9500BB51EA /* NflxMultiSubs (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0E92E1F72737CD9500BB51EA /* Build configuration list for PBXNativeTarget "MultiSubs (macOS)" */;
+			buildConfigurationList = 0E92E1F72737CD9500BB51EA /* Build configuration list for PBXNativeTarget "NflxMultiSubs (macOS)" */;
 			buildPhases = (
 				0E92E1BA2737CD9500BB51EA /* Sources */,
 				0E92E1BB2737CD9500BB51EA /* Frameworks */,
@@ -222,14 +222,14 @@
 			dependencies = (
 				0E92E1D82737CD9500BB51EA /* PBXTargetDependency */,
 			);
-			name = "MultiSubs (macOS)";
+			name = "NflxMultiSubs (macOS)";
 			productName = "MultiSubs (macOS)";
-			productReference = 0E92E1BE2737CD9500BB51EA /* MultiSubs.app */;
+			productReference = 0E92E1BE2737CD9500BB51EA /* NflxMultiSubs.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0E92E1D42737CD9500BB51EA /* MultiSubs Extension (macOS) */ = {
+		0E92E1D42737CD9500BB51EA /* NflxMultiSubs Extension (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0E92E1F32737CD9500BB51EA /* Build configuration list for PBXNativeTarget "MultiSubs Extension (macOS)" */;
+			buildConfigurationList = 0E92E1F32737CD9500BB51EA /* Build configuration list for PBXNativeTarget "NflxMultiSubs Extension (macOS)" */;
 			buildPhases = (
 				0E92E1D12737CD9500BB51EA /* Sources */,
 				0E92E1D22737CD9500BB51EA /* Frameworks */,
@@ -239,9 +239,9 @@
 			);
 			dependencies = (
 			);
-			name = "MultiSubs Extension (macOS)";
+			name = "NflxMultiSubs Extension (macOS)";
 			productName = "MultiSubs Extension (macOS)";
-			productReference = 0E92E1D52737CD9500BB51EA /* MultiSubs Extension.appex */;
+			productReference = 0E92E1D52737CD9500BB51EA /* NflxMultiSubs Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -262,7 +262,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0E92E19C2737CD9400BB51EA /* Build configuration list for PBXProject "MultiSubs" */;
+			buildConfigurationList = 0E92E19C2737CD9400BB51EA /* Build configuration list for PBXProject "NflxMultiSubs" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -275,8 +275,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0E92E1BD2737CD9500BB51EA /* MultiSubs (macOS) */,
-				0E92E1D42737CD9500BB51EA /* MultiSubs Extension (macOS) */,
+				0E92E1BD2737CD9500BB51EA /* NflxMultiSubs (macOS) */,
+				0E92E1D42737CD9500BB51EA /* NflxMultiSubs Extension (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -343,7 +343,7 @@
 /* Begin PBXTargetDependency section */
 		0E92E1D82737CD9500BB51EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0E92E1D42737CD9500BB51EA /* MultiSubs Extension (macOS) */;
+			target = 0E92E1D42737CD9500BB51EA /* NflxMultiSubs Extension (macOS) */;
 			targetProxy = 0E92E1D72737CD9500BB51EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -503,7 +503,7 @@
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wingch.MultiSubs.Extension;
-				PRODUCT_NAME = "MultiSubs Extension";
+				PRODUCT_NAME = "NflxMultiSubs Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -535,7 +535,7 @@
 					SafariServices,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wingch.MultiSubs.Extension;
-				PRODUCT_NAME = "MultiSubs Extension";
+				PRODUCT_NAME = "NflxMultiSubs Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -573,7 +573,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wingch.MultiSubs;
-				PRODUCT_NAME = MultiSubs;
+				PRODUCT_NAME = NflxMultiSubs;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -610,7 +610,7 @@
 					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wingch.MultiSubs;
-				PRODUCT_NAME = MultiSubs;
+				PRODUCT_NAME = NflxMultiSubs;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -620,7 +620,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0E92E19C2737CD9400BB51EA /* Build configuration list for PBXProject "MultiSubs" */ = {
+		0E92E19C2737CD9400BB51EA /* Build configuration list for PBXProject "NflxMultiSubs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0E92E1EA2737CD9500BB51EA /* Debug */,
@@ -629,7 +629,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0E92E1F32737CD9500BB51EA /* Build configuration list for PBXNativeTarget "MultiSubs Extension (macOS)" */ = {
+		0E92E1F32737CD9500BB51EA /* Build configuration list for PBXNativeTarget "NflxMultiSubs Extension (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0E92E1F42737CD9500BB51EA /* Debug */,
@@ -638,7 +638,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0E92E1F72737CD9500BB51EA /* Build configuration list for PBXNativeTarget "MultiSubs (macOS)" */ = {
+		0E92E1F72737CD9500BB51EA /* Build configuration list for PBXNativeTarget "NflxMultiSubs (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0E92E1F82737CD9500BB51EA /* Debug */,

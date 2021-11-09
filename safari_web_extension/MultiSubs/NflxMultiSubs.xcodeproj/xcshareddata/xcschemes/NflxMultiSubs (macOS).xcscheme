@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0E92E1BD2737CD9500BB51EA"
-               BuildableName = "MultiSubs.app"
-               BlueprintName = "MultiSubs (macOS)"
-               ReferencedContainer = "container:MultiSubs.xcodeproj">
+               BuildableName = "NflxMultiSubs.app"
+               BlueprintName = "NflxMultiSubs (macOS)"
+               ReferencedContainer = "container:NflxMultiSubs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0E92E1BD2737CD9500BB51EA"
-            BuildableName = "MultiSubs.app"
-            BlueprintName = "MultiSubs (macOS)"
-            ReferencedContainer = "container:MultiSubs.xcodeproj">
+            BuildableName = "NflxMultiSubs.app"
+            BlueprintName = "NflxMultiSubs (macOS)"
+            ReferencedContainer = "container:NflxMultiSubs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0E92E1BD2737CD9500BB51EA"
-            BuildableName = "MultiSubs.app"
-            BlueprintName = "MultiSubs (macOS)"
-            ReferencedContainer = "container:MultiSubs.xcodeproj">
+            BuildableName = "NflxMultiSubs.app"
+            BlueprintName = "NflxMultiSubs (macOS)"
+            ReferencedContainer = "container:NflxMultiSubs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
