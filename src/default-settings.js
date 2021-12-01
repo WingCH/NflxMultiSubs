@@ -2,14 +2,14 @@ const kDefaultSettings = {
   upperBaselinePos: 0.15,
   lowerBaselinePos: 0.85,
   primaryImageScale: 0.75,
-  primaryImageOpacity: 0.85,
+  primaryImageOpacity: 1,
   primaryTextScale: 0.95,
-  primaryTextOpacity: 0.85,
+  primaryTextOpacity: 1,
   secondaryImageScale: 0.5,
-  secondaryImageOpacity: 0.85,
+  secondaryImageOpacity: 1,
   secondaryTextScale: 1.0,
   secondaryTextStroke: 2.0,
-  secondaryTextOpacity: 0.85,
+  secondaryTextOpacity: 1,
   // secondaryLanguageMode valid values are:
   //    'disabled',
   //    'audio' (use audio language),
@@ -17,6 +17,7 @@ const kDefaultSettings = {
   secondaryLanguageMode: 'audio',
   // bcp47 code of the last used language
   secondaryLanguageLastUsed: undefined,
+  secondaryLanguageLastUsedIsCaption: undefined,
 };
 
 module.exports = kDefaultSettings;

@@ -3,11 +3,17 @@
 
 <img src="docs/icon.png?raw=true" height="48"> NflxMultiSubs
 ============================================================
+![Chrome users](https://img.shields.io/chrome-web-store/users/jepfhfjlkgobooomdgpcjikalfpcldmm?label=Chrome%20users)
+![Firefox users](https://img.shields.io/amo/users/nflxmultisubs-2021?label=Firefox%20users)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?business=5GY9A82PFY38W&no_recurring=1&currency_code=EUR)
+
 Best ever Chrome/Firefox extension to unleash bilingual subtitles on Netflix!
 全球首款支援 Netflix 全語言雙字幕的 Chrome/Firefox 擴充套件，提供您更佳的觀影體驗！
 
 [<img src="https://user-images.githubusercontent.com/13658335/138092194-303708fb-9a4e-4e3f-a1dc-74baff1e45c9.png" height="59"/>](https://chrome.google.com/webstore/detail/jepfhfjlkgobooomdgpcjikalfpcldmm)
-[<img src="https://user-images.githubusercontent.com/13658335/138086366-8deee659-16c3-4621-b3f0-eaf4cb6ed9ba.png" height="60"/>](https://addons.mozilla.org/en-GB/firefox/addon/nflxmultisubs-2021)
+[<img src="https://user-images.githubusercontent.com/13658335/138086366-8deee659-16c3-4621-b3f0-eaf4cb6ed9ba.png" height="60"/>](https://addons.mozilla.org/firefox/addon/nflxmultisubs-2021)
+[<img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-mac-app-store.svg" height="60"/>](https://apps.apple.com/app/nflxmultisubs/id1594059167)
+
 
 
 
@@ -42,7 +48,6 @@ npm run build
 - 使用過程中發生的問題，本套件與開發者概不負責哦，請謹慎使用
 - 本套件與 Netflix, Inc. 原廠沒有關係，各資源版權均屬原創作者所有
 - 本套件可能與其他 Netflix 相關套件相衝，很遺憾請擇一使用
-- 本套件可能與「廣告阻擋套件」（如 [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) 等）相衝，目前請自行解決 XD
 - 目前 text-based 第二字幕沒有處理 right-to-left (RTL) 語系
 
 
@@ -51,10 +56,6 @@ npm run build
 --------------
 ### 字幕列表是空的
 - 重新整理 (F5) 后字幕会出现
-### Netflix 播放器一直轉圈圈，最後跳出錯誤訊息
-- 通常從「影片列表」進到「播放頁面」會發生這種狀況
-- 多按幾次重新整理 (F5) 試試看 XD
-- 還是不行的話，可能是被「廣告阻擋套件」誤判擋下來了，請將 `netflix.com` 加入白名單或暫時停用該套件
 
 ### 主字幕跟第二字幕分很開
 - 通常只有在進度條顯示的時候才會發生，等到進度條隱藏就好了
@@ -74,7 +75,17 @@ npm run build
 - 這個套件只想專注做好一件事：提供「雙語字幕」的良好觀影體驗
 - 如果有请求，可以打开 issue（请写英文与在标题写入[Feature Request]）
 
+捐赠
+----
+这个项目总是免费的。如果你喜欢并想支持我的工作，欢迎捐款。
 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?business=5GY9A82PFY38W&no_recurring=1&currency_code=EUR)
+
+BTC: `bc1qx8duq3526zhc2md724ym70qgd4wgadj5dqfuvr`
+
+ETH: `0x02635a2ef80887B0AEBa5a8282AeFAEA401DFCf9`
+
+XLM: `GB5Y7TVH7OBI7MFAT26RZ4TCZRDMVNWXLQH3LPTI2RRB22PRHSDR25BH`
 
 License
 --------

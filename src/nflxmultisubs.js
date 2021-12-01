@@ -114,11 +114,12 @@ let gSecondaryOffset = 0; // used to move secondary subs if primary subs overflo
 ////////////////////////////////////////////////////////////////////////////////
 
 class SubtitleBase {
-  constructor(lang, bcp47, urls) {
+  constructor(lang, bcp47, urls, isCaption) {
     this.state = 'GENESIS';
     this.active = false;
     this.lang = lang;
     this.bcp47 = bcp47;
+    this.isCaption = isCaption;
     this.urls = urls;
     this.extentWidth = undefined;
     this.extentHeight = undefined;
@@ -171,20 +172,15 @@ class SubtitleBase {
   _download() {
     if (!this.urls) return Promise.resolve();
 
-    console.log('Selecting fastest server, candidates: ',
+    console.debug('Selecting fastest server, candidates: ',
       this.urls.map(u => u.substr(0, 24)));
 
-    let download_started = false;
-    return new Promise((resolve, reject) => {
-      this.urls.forEach(url => {
-        fetch(new Request(url), {method: 'HEAD'}).then(r => {
-          if (download_started) return;
-
-          download_started = true;
-          console.log('Fastest: ', url.substr(0, 24));
-          this._extract(fetch(url)).then(() => resolve());
-        });
-      });
+    return Promise.race(
+      this.urls.map(url => fetch(new Request(url), {method: 'HEAD'}))
+    ).then(r => {
+      const url = r.url;
+      console.debug(`Fastest: ${url.substr(0, 24)}`);
+      return this._extract(fetch(url));
     });
   }
 
@@ -410,9 +406,9 @@ class SubtitleFactory {
     const bcp47 = track.language;
 
     if (isImageBased) {
-      return this._buildImageBased(track, lang, bcp47);
+      return this._buildImageBased(track, lang, bcp47, isCaption);
     }
-    return this._buildTextBased(track, lang, bcp47);
+    return this._buildTextBased(track, lang, bcp47, isCaption);
   }
 
   static isNoneTrack(track) {
@@ -420,26 +416,36 @@ class SubtitleFactory {
     // Such tracks have "isNoneTrack: false" and even have downloadable URLs,
     // while their display name is "Off" (localized in UI language, e.g., "關閉").
     // Here we use a huristic rule concluded by observation to filter those "fake" tracks out.
-    //
+    if (track.isNoneTrack) {
+      return true;
+    }
+
     // "new_track_id" example "T:1:0;1;zh-Hant;1;1;"
     // the last bit is 1 for NoneTrack text tracks
     try {
       const isNoneTrackBit = track.new_track_id.split(';')[4];
-      return isNoneTrackBit === '1';
+      if (isNoneTrackBit === '1') {
+        return true;
+      }
     }
     catch (err) {
+    }
+
+    // "rank" === -1
+    if (track.rank !== undefined && track.rank < 0) {
+      return true;
     }
     return false;
   }
 
-  static _buildImageBased(track, lang, bcp47) {
+  static _buildImageBased(track, lang, bcp47, isCaption) {
     const maxHeight = Math.max(...Object.values(track.ttDownloadables).map(d => d.height));
     const d = Object.values(track.ttDownloadables).find(d => d.height === maxHeight);
     const urls = Object.values(d.downloadUrls);
-    return new ImageSubtitle(lang, bcp47, urls);
+    return new ImageSubtitle(lang, bcp47, urls, isCaption);
   }
 
-  static _buildTextBased(track, lang, bcp47) {
+  static _buildTextBased(track, lang, bcp47, isCaption) {
     const targetProfile = 'dfxp-ls-sdh';
     const d = track.ttDownloadables[targetProfile];
     if (!d) {
@@ -447,7 +453,7 @@ class SubtitleFactory {
       return null;
     }
     const urls = Object.values(d.downloadUrls);
-    return new TextSubtitle(lang, bcp47, urls);
+    return new TextSubtitle(lang, bcp47, urls, isCaption);
   }
 }
 
@@ -458,7 +464,6 @@ const buildSubtitleList = textTracks => {
 
   // sorted by language in alphabetical order (to align with official UI)
   const subs = textTracks
-    .filter(t => !t.isNoneTrack)
     .filter(t => !SubtitleFactory.isNoneTrack(t))
     .map(t => SubtitleFactory.build(t));
   return subs.concat(dummy);
@@ -494,15 +499,15 @@ class SubtitleMenu {
   }
 
   render() {
-    const checkIcon = `<svg viewBox="0 0 24 24" class=${this.style.selected}><path fill="currentColor" d="M3.707 12.293l-1.414 1.414L8 19.414 21.707 5.707l-1.414-1.414L8 16.586z"></path></svg>`;
+    const checkIcon = `<svg viewBox="0 0 24 24" class="${this.style.selected}"><path fill="currentColor" d="M3.707 12.293l-1.414 1.414L8 19.414 21.707 5.707l-1.414-1.414L8 16.586z"></path></svg>`;
 
-    const loadingIcon = `<svg class=${this.style.selected} focusable="false" viewBox="0 -5 50 55">
+    const loadingIcon = `<svg class="${this.style.selected}" focusable="false" viewBox="0 -5 50 55">
           <path d="M 6 25 C6 21, 0 21, 0 25 C0 57, 49 59, 50 25 C50 50, 8 55, 6 25" stroke="transparent" fill="red">
             <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.9s" repeatCount="indefinite"/>
           </path>
       </svg>`;
 
-    this.elem.innerHTML = `<h3 class=${this.style.h3}>Secondary Subtitles</h3>`;
+    this.elem.innerHTML = `<h3 class="${this.style.h3}">Secondary Subtitles</h3>`;
 
     const listElem = document.createElement('ul');
     gSubtitles.forEach((sub, id) => {
@@ -511,9 +516,9 @@ class SubtitleMenu {
       if (sub.active) {
         const icon = sub.state === 'LOADING' ? loadingIcon : checkIcon;
         item.classList.add('selected');
-        item.innerHTML = `<div>${icon}<div class=${this.style.subdiv}>${sub.lang}</div></div>`;
+        item.innerHTML = `<div>${icon}<div class="${this.style.subdiv}">${sub.lang}</div></div>`;
       } else {
-        item.innerHTML = `<div><div class=${this.style.subdiv}>${sub.lang}</div></div>`;
+        item.innerHTML = `<div><div class="${this.style.subdiv}">${sub.lang}</div></div>`;
         item.addEventListener('click', () => {
           activateSubtitle(id);
         });
@@ -577,6 +582,8 @@ activateSubtitle = id => {
     sub.activate().then(() => {gSubtitleMenu && gSubtitleMenu.render();});
 
     gRenderOptions.secondaryLanguageLastUsed = sub.bcp47;
+    gRenderOptions.secondaryLanguageLastUsedIsCaption = sub.isCaption;
+
     if (BROWSER === 'chrome') {
       if (gMsgPort)
         gMsgPort.postMessage({settings: gRenderOptions});
@@ -1250,7 +1257,10 @@ class NflxMultiSubsManager {
               if (gRenderOptions.secondaryLanguageLastUsed){
                 console.log('Activating last sub language', gRenderOptions.secondaryLanguageLastUsed)
                 try{
-                  const lastSubtitleId = gSubtitles.findIndex(t => t.bcp47 == gRenderOptions.secondaryLanguageLastUsed);
+                  let lastSubtitleId = gSubtitles.findIndex(t => (t.bcp47 == gRenderOptions.secondaryLanguageLastUsed && t.isCaption == gRenderOptions.secondaryLanguageLastUsedIsCaption));
+                  // if can't match CC type, fall back to language only
+                  if (lastSubtitleId == -1)
+                    lastSubtitleId = gSubtitles.findIndex(t => t.bcp47 == gRenderOptions.secondaryLanguageLastUsed);
                   if (lastSubtitleId >= 0) {
                     console.log(`Subtitle #${lastSubtitleId} enabled`);
                     activateSubtitle(lastSubtitleId);

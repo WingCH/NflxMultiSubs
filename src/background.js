@@ -22,6 +22,11 @@ chrome.storage.local.get(['settings'], (result) => {
 });
 
 function saveSettings() {
+  // hack to update opacity for existing users
+  gSettings.primaryImageOpacity = 1
+  gSettings.primaryTextOpacity = 1
+  gSettings.secondaryImageOpacity = 1
+  gSettings.secondaryTextOpacity = 1
   chrome.storage.local.set({ settings: gSettings }, () => {
     console.log('Settings: saved into local storage');
   });
