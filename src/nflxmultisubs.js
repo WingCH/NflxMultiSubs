@@ -439,7 +439,12 @@ class SubtitleFactory {
   }
 
   static _buildImageBased(track, lang, bcp47, isCaption) {
-    const maxHeight = Math.max(...Object.values(track.ttDownloadables).map(d => d.height));
+    const maxHeight = Math.max(...Object.values(track.ttDownloadables).map(d => {
+      if(d.height)
+        return d.height;
+      else
+        return -1;
+    }));
     const d = Object.values(track.ttDownloadables).find(d => d.height === maxHeight);
     const urls = Object.values(d.downloadUrls);
     return new ImageSubtitle(lang, bcp47, urls, isCaption);
