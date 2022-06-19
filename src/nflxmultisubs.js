@@ -273,7 +273,7 @@ class TextSubtitle extends SubtitleBase {
     text.setAttributeNS(null, 'opacity', options.secondaryTextOpacity);
     text.style.fontSize = `${fontSize * options.secondaryTextScale}px`;
     text.style.fontFamily = 'Arial, Helvetica';
-    text.style.fill = 'white';
+    text.style.fill = options.secondaryTextColor;
     text.style.stroke = 'black';
     text.textContent = textContent;
     return [text];
@@ -455,7 +455,7 @@ class SubtitleFactory {
     const targetProfile = 'dfxp-ls-sdh';
     const d = track.ttDownloadables[targetProfile];
     if (!d) {
-      console.error(`Cannot find "${targetProfile}" for ${lang}`);
+      console.debug(`Cannot find "${targetProfile}" for ${lang}`);
       return null;
     }
     const urls = Object.values(d.downloadUrls);
@@ -471,7 +471,8 @@ const buildSubtitleList = textTracks => {
   // sorted by language in alphabetical order (to align with official UI)
   const subs = textTracks
     .filter(t => !SubtitleFactory.isNoneTrack(t))
-    .map(t => SubtitleFactory.build(t));
+    .map(t => SubtitleFactory.build(t))
+    .filter(t => t !== null);
   return subs.concat(dummy);
 };
 
@@ -662,6 +663,7 @@ class PrimaryImageTransformer {
       const lowerBaseline = extentHeight * options.lowerBaselinePos;
       const scale = options.primaryImageScale;
       const opacity = options.primaryImageOpacity;
+      const color = options.primaryTextColor;
 
       [].forEach.call(images, img => {
         img.classList.add('nflxmultisubs-scaled');
@@ -728,6 +730,7 @@ class PrimaryImageTransformer {
         img.setAttributeNS(null, 'x', newLeft);
         img.setAttributeNS(null, 'y', newTop);
         img.setAttributeNS(null, 'opacity', opacity);
+        img.setAttributeNS(null, 'color', color);
       });
     }
   }
@@ -777,11 +780,13 @@ class PrimaryTextTransformer {
 
     const options = gRenderOptions;
     const opacity = options.primaryTextOpacity;
+    const color = options.primaryTextColor;
     const scale = options.primaryTextScale;
     const newFontSize = fontSize * scale;
     const styleText = `.player-timedtext-text-container span {
         font-size: ${newFontSize}px !important;
         opacity: ${opacity};
+        color: ${color} !important;
       }`;
     style.textContent = styleText;
 
