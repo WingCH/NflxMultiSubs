@@ -32,7 +32,7 @@ hr {
   border: 0;
   border-top: 1px solid hsl(0, 0%, 90%);
   border-bottom: 1px solid hsl(0, 0%, 100%);
-  margin: 16px 0;
+  margin: 10px 0;
   padding: 0;
 }
 
@@ -45,13 +45,16 @@ h1 {
 }
 
 section {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
+section p{
+  margin: 3px 0px;
+}
 section h2 {
   color: hsl(0, 0%, 40%);
   font-size: 16px;
-  margin: 0 0 16px 0;
+  margin: 0 0 5px 0;
   padding: 8px 0;
   background: hsl(0, 0%, 95%);
 }
@@ -198,6 +201,45 @@ footer {
   width: 100%;
   top: 20%;
   pointer-events: none;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip span {
+  visibility: hidden;
+  width: 170px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  z-index: 1;
+  bottom: 165%;
+  left: 50%;
+  margin-left: -88px;
+}
+
+.tooltip:hover span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip span::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #5e5e5e transparent transparent transparent;
 }
 
 .font-size-xs { font-size:  9px; }
