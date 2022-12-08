@@ -1,7 +1,7 @@
 {
 	"short_name": "NflxMultiSubs",
 	"description": "Bilingual Subtitles for Netflix",
-	"version": "2.3.11",
+	"version": "2.4.3",
 	"name": "NflxMultiSubs",
 	"manifest_version": 2,
 	"author": "WingCH",
