@@ -8,6 +8,12 @@ npm install
 npm run build
 ```
 
+Patch the settings code to work with Safari:
+
+```
+LC_ALL=C sed -i '.bak' 's/chrome\.runtime/browser.runtime/g' src/*.js && rm src/*.bak
+```
+
 If the xcode project has not been generated before,   use [converter](https://developer.apple.com/documentation/safariservices/safari_web_extensions/converting_a_web_extension_for_safari) to convert chrome extension to safari extension
 
 ```

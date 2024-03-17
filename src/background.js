@@ -155,15 +155,15 @@ function handleInternalConnection(port) {
 
 // handle connections from target website and our pop-up
 if (BROWSER === 'chrome') {
-  chrome.runtime.onConnectExternal.addListener(
+  browser.runtime.onConnectExternal.addListener(
     port => handleExternalConnection(port));
 
-  chrome.runtime.onConnect.addListener(
+  browser.runtime.onConnect.addListener(
     port => handleInternalConnection(port));
 }
 else {
   // Firefox: either from website (injected agent) or pop-up are all "internal"
-  chrome.runtime.onConnect.addListener(port => {
+  browser.runtime.onConnect.addListener(port => {
     if (port.sender && port.sender.tab) {
       handleExternalConnection(port);
     }

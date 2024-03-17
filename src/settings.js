@@ -1,12 +1,37 @@
 let settings = {};
+let primaryPicker, secondaryPicker;
 
-const port = chrome.runtime.connect({ name: 'settings' });
+if (BROWSER === 'firefox') {
+  const Picker = require('vanilla-picker');
+
+  primaryPicker = new Picker({
+    popup: 'bottom',
+    color: '#ffffff',
+    alpha: false,
+    editor: false
+  });
+
+  secondaryPicker = new Picker({
+    popup: 'top',
+    color: '#ffffff',
+    alpha: false,
+    editor: false
+  });
+}
+
+const port = browser.runtime.connect({ name: 'settings' });
 port.onMessage.addListener((msg) => {
   settings = msg.settings || settings;
   renderActiveSettings();
+
+  primaryPicker?.setColor(settings.primaryTextColor || "#ffffff", true);
+  secondaryPicker?.setColor(settings.secondaryTextColor || "#ffffff", true);
 });
 
 // -----------------------------------------------------------------------------
+
+const minimumFontScale = 0.3;
+const maximumFontScale = 2.5;
 
 const layoutPresets = [
   { // compact
@@ -20,52 +45,6 @@ const layoutPresets = [
   { // ease
     upperBaselinePos: 0.10,
     lowerBaselinePos: 0.90,
-  },
-];
-
-const primarySizePresets = [
-  { // x-small
-    primaryImageScale: 0.55,
-    primaryTextScale: 0.75,
-  },
-  { // small
-    primaryImageScale: 0.65,
-    primaryTextScale: 0.85,
-  },
-  { // medium (default)
-    primaryImageScale: 0.75,
-    primaryTextScale: 0.95,
-  },
-  { // large
-    primaryImageScale: 0.85,
-    primaryTextScale: 1.05,
-  },
-  { // x-large
-    primaryImageScale: 0.95,
-    primaryTextScale: 1.10,
-  },
-];
-
-const secondarySizePresets = [
-  { // x-small
-    secondaryImageScale: 0.35,
-    secondaryTextScale: 0.85,
-  },
-  { // small
-    secondaryImageScale: 0.42,
-    secondaryTextScale: 0.92,
-  },
-  { // medium (default)
-    secondaryImageScale: 0.50,
-    secondaryTextScale: 1.00,
-  },
-  { // large
-    secondaryImageScale: 0.60,
-    secondaryTextScale: 1.10,
-  },
-  { // x-large
-    secondaryImageScale: 0.80,
-    secondaryTextScale: 1.30,
   },
 ];
 
@@ -107,21 +86,13 @@ function renderActiveSettings() {
     elem && elem.classList.add('active');
   }
   // primary font size
-  const primaryFontSizeId = primarySizePresets.findIndex(k => (k.primaryImageScale === settings.primaryImageScale));
-  if (primaryFontSizeId !== -1) {
-    elem = document.querySelector(`.settings-primary-font-size div.font-size[data-id="${primaryFontSizeId}"]`);
-    elem && elem.classList.add('active');
-  }
+  document.getElementById('primary-font-indicator').style.scale = settings.primaryTextScale * 0.8;
   
   // primary font color
   document.getElementById('primary-color').value = settings.primaryTextColor || "#ffffff";
 
   // secondary font size
-  const secondaryFontSizeId = secondarySizePresets.findIndex(k => (k.secondaryImageScale === settings.secondaryImageScale));
-  if (secondaryFontSizeId !== -1) {
-    elem = document.querySelector(`.settings-secondary-font-size div.font-size[data-id="${secondaryFontSizeId}"]`);
-    elem && elem.classList.add('active');
-  }
+  document.getElementById('secondary-font-indicator').style.scale = settings.secondaryTextScale * 0.8;
 
   // secondary font color
   document.getElementById('secondary-color').value = settings.secondaryTextColor || "#ffffff";
@@ -145,18 +116,27 @@ function updateLayout(layoutId) {
   renderActiveSettings();
 }
 
-function updatePrimaryFontSize(fontSizeId) {
-  if (fontSizeId < 0 || fontSizeId >= primarySizePresets.length) return;
+function updatePrimaryFontSize(action) {
+  if (action === "+") {
+    settings.primaryTextScale = Math.min(maximumFontScale, settings.primaryTextScale + 0.1);
+  } else if (action === "-"){
+    settings.primaryTextScale = Math.max(minimumFontScale, settings.primaryTextScale - 0.1);
+  } else return;
 
-  settings = Object.assign(settings, primarySizePresets[fontSizeId]);
+  settings.primaryImageScale = 0.6 * settings.primaryTextScale;
   uploadSettings();
   renderActiveSettings();
 }
 
-function updateSecondaryFontSize(fontSizeId) {
-  if (fontSizeId < 0 || fontSizeId >= secondarySizePresets.length) return;
+function updateSecondaryFontSize(action) {
+  if (action === "+") {
+    settings.secondaryTextScale = Math.min(maximumFontScale, settings.secondaryTextScale + 0.1);
+  } else if (action === "-"){
+    settings.secondaryTextScale = Math.max(minimumFontScale, settings.secondaryTextScale - 0.1);
+  } else return;
 
-  settings = Object.assign(settings, secondarySizePresets[fontSizeId]);
+  settings.secondaryImageScale = 0.6 * settings.secondaryTextScale;
+
   uploadSettings();
   renderActiveSettings();
 }
@@ -202,27 +182,35 @@ window.addEventListener('load', evt => {
     div.addEventListener('click', evt => updateLayout(layoutId), false);
   });
 
-  const primarySizes = document.querySelectorAll('.settings-primary-font-size div.font-size');
-  [].forEach.call(primarySizes, div => {
-    const fontSizeId = parseInt(div.getAttribute('data-id'));
-    div.addEventListener('click', evt => updatePrimaryFontSize(fontSizeId), false);
-  });
+  document.getElementById("primary-plus").addEventListener('click', () => updatePrimaryFontSize("+"));
+  document.getElementById("primary-minus").addEventListener('click', () => updatePrimaryFontSize("-"));
 
-  const secondarySizes = document.querySelectorAll('.settings-secondary-font-size div.font-size');
-  [].forEach.call(secondarySizes, div => {
-    const fontSizeId = parseInt(div.getAttribute('data-id'));
-    div.addEventListener('click', evt => updateSecondaryFontSize(fontSizeId), false);
-  });
+  document.getElementById("secondary-plus").addEventListener('click', () => updateSecondaryFontSize("+"));
+  document.getElementById("secondary-minus").addEventListener('click', () => updateSecondaryFontSize("-"));
 
-  const primaryColorField = document.getElementById('primary-color')
+  const primaryColorField = document.getElementById('primary-color');
   primaryColorField.onchange = evt => {
-    updatePrimaryColor(evt.target.value)
+    updatePrimaryColor(evt.target.value);
   }
 
-  const secondaryColorField = document.getElementById('secondary-color')
+  primaryPicker?.setOptions({
+    parent: document.getElementById('primary-color-ff'),
+    onChange: color => {
+      updatePrimaryColor(color.hex.slice(0, 7));
+    }
+  });
+
+  const secondaryColorField = document.getElementById('secondary-color');
   secondaryColorField.onchange = evt => {
-    updateSecondaryColor(evt.target.value, false)
+    updateSecondaryColor(evt.target.value);
   }
+
+  secondaryPicker?.setOptions({
+    parent: document.getElementById('secondary-color-ff'),
+    onChange: color => {
+      updateSecondaryColor(color.hex.slice(0, 7));
+    }
+  });
 
   const secondaryLanguage = document.querySelectorAll('.settings-secondary-lang > div');
   [].forEach.call(secondaryLanguage, div => {

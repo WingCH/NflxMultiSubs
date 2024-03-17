@@ -1,5 +1,5 @@
 {
-  "name": "NflxMultiSubs 2021 (Netflix Multi. Subtitles)",
+  "name": "NflxMultiSubs",
   "manifest_version": 2,
   "author": "Dan Chen, Gert Mertes",
 
@@ -16,7 +16,8 @@
   },
 
   "browser_action": {
-    "default_icon": "icon-gray.png"
+    "default_icon": "icon-gray.png",
+    "default_popup": "settings.html"
   },
 
   "icons": {

@@ -68,7 +68,7 @@ let gSecondaryOffset = 0; // used to move secondary subs if primary subs overflo
     if (gMsgPort) return;
     try {
       const extensionId = window.__nflxMultiSubsExtId;
-      gMsgPort = chrome.runtime.connect(extensionId);
+      gMsgPort = browser.runtime.connect(extensionId);
       console.log(`Linked: ${extensionId}`);
 
       gMsgPort.onMessage.addListener(msg => {
@@ -175,7 +175,7 @@ class SubtitleBase {
     console.debug('Selecting fastest server, candidates: ',
       this.urls.map(u => u.substr(0, 24)));
 
-    return Promise.race(
+    return Promise.any(
       this.urls.map(url => fetch(new Request(url), {method: 'HEAD'}))
     ).then(r => {
       const url = r.url;
@@ -197,6 +197,18 @@ class SubtitleBase {
 class DummySubtitle extends SubtitleBase {
   constructor() {
     super('Off');
+  }
+
+  activate() {
+    this.active = true;
+    return Promise.resolve();
+  }
+}
+
+// subtitle with no download urls
+class DehydratedSubtitle extends SubtitleBase {
+  constructor(...args) {
+    super(...args);
   }
 
   activate() {
@@ -419,6 +431,9 @@ class SubtitleFactory {
     const lang = track.languageDescription + (isCaption ? ' [CC]' : '');
     const bcp47 = track.language;
 
+    if (!track.hydrated) {
+      return new DehydratedSubtitle(lang, bcp47);
+    }
     if (isImageBased) {
       return this._buildImageBased(track, lang, bcp47, isCaption);
     }
@@ -499,6 +514,17 @@ const buildSubtitleList = textTracks => {
   return subs.concat(dummy);
 };
 
+// textTracks: manifest.textTracks
+const updateSubtitleList = (textTracks, textTrackId) => {
+  const track = textTracks.find(t => t.new_track_id == textTrackId),
+    sub = SubtitleFactory.build(track),
+    index = gSubtitles.findIndex(s => s.lang == sub.lang);
+  if (gSubtitles[index] instanceof DehydratedSubtitle && sub !== null) {
+    gSubtitles[index] = sub;
+    gSubtitleMenu && gSubtitleMenu.render();
+  }
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 
 const SUBTITLE_LIST_CLASSNAME = 'nflxmultisubs-subtitle-list';
@@ -541,6 +567,7 @@ class SubtitleMenu {
 
     const listElem = document.createElement('ul');
     gSubtitles.forEach((sub, id) => {
+      if (sub instanceof DehydratedSubtitle) return;
       let item = document.createElement('li');
       item.classList.add(this.style.li);
       if (sub.active) {
@@ -824,7 +851,7 @@ class PrimaryTextTransformer {
     // FIXME: dirty transform & magic offets
     // we out run the official player, so the primary text-based subtitles
     // does not move automatically when the navs are active
-    newTop += controlsActive ? -120 : 0;
+    newTop += controlsActive ? -100 : 0;
 
     if (containers.length == 1){
       style.textContent +=
@@ -960,7 +987,7 @@ class RendererLoop {
       if (gMsgPort) return;
       try {
         const extensionId = window.__nflxMultiSubsExtId;
-        gMsgPort = chrome.runtime.connect(extensionId);
+        gMsgPort = browser.runtime.connect(extensionId);
         console.log(`Linked: ${extensionId}`);
 
         gMsgPort.onMessage.addListener(msg => {
@@ -1004,7 +1031,7 @@ class RendererLoop {
   _getControlsActive() {
     // FIXME: better solution to handle different versions of Netflix web player UI
     // "Neo Style" refers to the newer version as in 2018/07
-    let controlsElem = document.querySelector('.controls'),
+    let controlsElem = document.querySelector('.controls, div[data-uia="controls-standard"], .watch-video--bottom-controls-container'),
       neoStyle = false;
     if (!controlsElem) {
       controlsElem = document.querySelector('.PlayerControlsNeo__layout');
@@ -1023,7 +1050,7 @@ class RendererLoop {
         'PlayerControlsNeo__layout--inactive'
       );
     }
-    return controlsElem.classList.contains('active');
+    return controlsElem !== null;
   }
 
   // @returns {boolean} Successed?
@@ -1042,17 +1069,20 @@ class RendererLoop {
     // NOTE: we cannot put `primaryImageSubSvg` into instance state,
     // because there are multiple instance of the SVG and they're switched
     // when the langauge of primary subtitles is switched.
+    const force = this.lastControlsActive !== active;
     const primaryImageSubSvg = document.querySelector(
       '.image-based-subtitles svg'
     );
     if (primaryImageSubSvg) {
-      this.primaryImageTransformer.transform(primaryImageSubSvg, active, dirty);
+      this.primaryImageTransformer.transform(primaryImageSubSvg, active, dirty || force);
     }
 
     const primaryTextSubDiv = document.querySelector('.player-timedtext');
     if (primaryTextSubDiv) {
-      this.primaryTextTransformer.transform(primaryTextSubDiv, active, dirty);
+      this.primaryTextTransformer.transform(primaryTextSubDiv, active, dirty || force);
     }
+
+    this.lastControlsActive = active;
   }
 
   _clearSecondarySubtitles() {
@@ -1251,7 +1281,8 @@ class NflxMultiSubsManager {
 
           const movieChanged = manifest.movieId !== this.lastMovieId;
           if (!movieChanged) {
-            //console.log(`Ignored: manifest ${manifest.movieId} already loaded`);
+            updateSubtitleList(manifest.timedtexttracks, manifest.recommendedMedia.timedTextTrackId);
+            console.log(`Manifest ${manifest.movieId} updated`);
             return;
           }
 
@@ -1382,9 +1413,9 @@ window.__NflxMultiSubs = nflxMultiSubsManager;  // interface between us and the 
 const playbackRateController = new PlaybackRateController();
 playbackRateController.activate();
 
-window.addEventListener('keyup', (event) => {
+window.addEventListener('keydown', (event) => {
   // toggle subtitles visibility with 'v'
-  if (event.code === 'KeyV') {
+  if (event.key.toLowerCase() === 'v') {
     const primary = document.querySelector('.nflxmultisubs-primary-wrapper');
     const secondary = document.querySelector('.nflxmultisubs-subtitle-wrapper');
 
