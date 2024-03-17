@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   let scriptElem = document.createElement('script');
   scriptElem.setAttribute('type', 'text/javascript');
   scriptElem.textContent = `(() => {
-      window.__nflxMultiSubsExtId = ${JSON.stringify(chrome.runtime.id)};
+      window.__nflxMultiSubsExtId = ${JSON.stringify(browser.runtime.id)};
     })();`;
   document.body.appendChild(scriptElem);
 
@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
   scriptsToInject.forEach(scriptName => {
     const scriptElem = document.createElement('script');
     scriptElem.setAttribute('type', 'text/javascript');
-    scriptElem.setAttribute('src', chrome.runtime.getURL(scriptName));
+    scriptElem.setAttribute('src', browser.runtime.getURL(scriptName));
     document.head.appendChild(scriptElem);
     console.log(`Injected: ${scriptName}`);
   });

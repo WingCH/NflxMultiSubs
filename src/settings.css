@@ -10,6 +10,7 @@ html, body {
   padding: 0;
   outline: 0;
   user-select: none;
+  overflow: hidden;
 }
 
 .wrapper {
@@ -140,27 +141,39 @@ footer {
 
 .font-size {
   position: relative;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border: 2px solid hsl(0, 0%, 70%);
   color: hsl(0, 0%, 30%);
-  border-radius: 21px;
-  font-weight: bold;
+  background-color: hsl(0, 0%, 98%);
+  border-radius: 25px;
+  font-size: 25px;
+  font-weight: normal;
   align-items: stretch;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
+.font-size-indicator {
+  height: 35px;
+  width: 35px;
+  border: 1px solid hsl(0, 0%, 70%);
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 10px;
+}
 .font-size + .font-size {
-  margin-left: 10px;
+  margin-left: 7px;
 }
 
-.font-size:hover,
-.font-size.active {
+.action:hover{
   border-color: hsl(0, 70%, 50%);
   color: hsl(0, 70%, 50%);
   cursor: pointer;
+}
+.action:active {
+  border-color: hsl(0, 84%, 80%);
+  color: hsl(0, 91%, 86%);
 }
 
 .settings-secondary-lang div span {
@@ -242,8 +255,24 @@ footer {
   border-color: #5e5e5e transparent transparent transparent;
 }
 
-.font-size-xs { font-size:  9px; }
-.font-size-s  { font-size: 11px; }
-.font-size-m  { font-size: 13px; }
-.font-size-l  { font-size: 15px; }
-.font-size-xl { font-size: 17px; }
+#primary-color-ff .picker_wrapper {
+  width: 230px;
+  left: -100px;
+  margin-top: 5px;
+}
+
+#secondary-color-ff .picker_wrapper {
+  width: 230px;
+  left: -100px;
+  margin-bottom: 60px;
+}
+
+#primary-color-ff .picker_arrow,
+#secondary-color-ff .picker_arrow {
+  visibility: hidden;
+}
+
+#primary-color-ff .picker_wrapper.popup,
+#secondary-color-ff .picker_wrapper.popup {
+  box-shadow: 0 0 10px 1px rgb(0 0 0 / 80%);
+}

@@ -8,7 +8,7 @@ class PlaybackRateController {
   activate() {
     if (this.keyUpHandler) return;
 
-    this.keyUpHandler = window.addEventListener('keyup',
+    this.keyUpHandler = window.addEventListener('keydown',
       this._keyUpHandler.bind(this));
   }
 
@@ -16,14 +16,13 @@ class PlaybackRateController {
   deactivate() {
     if (!this.keyUpHandler) return;
 
-    window.removeEventListener('keyup', this.keyUpHandler);
+    window.removeEventListener('keydown', this.keyUpHandler);
     this.keyUpHandler = null;
   }
 
 
   _keyUpHandler(evt) {
-    if (evt.ctrlKey || evt.altKey || evt.shiftKey || evt.metaKey) return;
-    if ((evt.keyCode !== 219 /* [ */) && (evt.keyCode !== 221 /* ] */)) return;
+    if (!['BracketLeft', 'BracketRight'].includes(evt.code) && !['[', ']'].includes(evt.key) ) return;
 
     const playerContainer = document.querySelector('.watch-video');
     if (!playerContainer) return;
@@ -32,8 +31,8 @@ class PlaybackRateController {
     if (!video) return;
 
     let playbackRate = video.playbackRate;
-    if (evt.keyCode === 219) playbackRate -= 0.1; // key [ pressed
-    else if (evt.keyCode == 221) playbackRate += 0.1; // ] pressed
+    if (evt.code === 'BracketLeft' || evt.key === '[') playbackRate -= 0.1;
+    else if (evt.code === 'BracketRight'|| evt.key === ']') playbackRate += 0.1;
 
     playbackRate = Math.max(Math.min(playbackRate, 3.0), 0.1);
     video.playbackRate = playbackRate;
